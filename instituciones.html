@@ -1,0 +1,190 @@
+<!DOCTYPE HTML>
+<html lang = "en">
+	<head>
+		<!-- ---------------------------------------------------------------------------
+		
+		Project: Human Centeredness experimental evaluation tool
+		Author: Olga Peñalba, Miguel Revuelta
+		Date: 2015-09-1
+		Version: 2.1 (english)
+
+		---------------------------------------------------------------------------- -->
+	
+		<title>HCXET | Places</title>
+		
+		<!-- METADATOS -->
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		
+		<!-- CSS -->
+		<link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.3/leaflet.css" />
+		<style>
+			#volver {
+			position: absolute;
+			right: 10px;
+			top: 10px;
+			z-index: 1;
+			width:100px;
+			height:100px;
+			
+			-webkit-border-radius: 50px;
+			-moz-border-radius: 50px;
+			border-radius: 50px;
+			
+			/* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#a4b357+0,75890c+100;Olive+3D+%233 */
+			background: #a4b357; /* Old browsers */
+			background: -moz-linear-gradient(top,  #a4b357 0%, #75890c 100%); /* FF3.6+ */
+			background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#a4b357), color-stop(100%,#75890c)); /* Chrome,Safari4+ */
+			background: -webkit-linear-gradient(top,  #a4b357 0%,#75890c 100%); /* Chrome10+,Safari5.1+ */
+			background: -o-linear-gradient(top,  #a4b357 0%,#75890c 100%); /* Opera 11.10+ */
+			background: -ms-linear-gradient(top,  #a4b357 0%,#75890c 100%); /* IE10+ */
+			background: linear-gradient(to bottom,  #a4b357 0%,#75890c 100%); /* W3C */
+			filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#a4b357', endColorstr='#75890c',GradientType=0 ); /* IE6-9 */
+			
+			text-align:center;
+			color:#fff;
+		}
+		
+		#volver:hover{cursor:pointer;}
+		
+		#volver p {line-height:100px;}
+		</style>
+		
+		<!-- JAVASCRIPT -->
+		<script src="http://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.3/leaflet.js"></script>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+		<script>
+			$( document ).ready(function() {
+				
+				// Get client height
+				var h = $( document ).height();
+				
+				// Set our map with the client height (well, it's full size)
+				$('#map').css('height', h);
+				
+				// Create the map
+				var map = L.map('map').setView([15, 0], 3);
+				
+				L.tileLayer('https://{s}.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={accessToken}', {
+					attribution: 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, <a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="http://mapbox.com">Mapbox</a>',
+					maxZoom: 19,
+					minZoom: 3,
+					noWrap: true,
+					id: 'revuel.mo805j1n',
+					accessToken: 'pk.eyJ1IjoicmV2dWVsIiwiYSI6IjY5NmIyODI5MjI3YTE1OTM4ODE5ODBmNDg1YzEyZjk4In0.1rjTdwLQy4h695I1HMsfYw'
+				}).addTo(map);
+				
+				// Adding the Places
+				
+				// UFV
+				var marker1 = L.marker([40.44202, -3.83407]).addTo(map);
+				marker1.bindPopup("<a href='http://www.ufv.es' target='_blank'>UFV</a><br>Universidad Francisco de Vitoria");
+				
+				// Institute for Human and Machine Cognition
+				var marker2 = L.marker([30.412936, -87.209455]).addTo(map);
+				marker2.bindPopup("<a href='http://www.ihmc.us/' target='_blank'>IHMC</a><br>Institute for Human and Machine Cognition");
+				
+				// Georgia Tech PhD in HCC
+				var marker3 = L.marker([33.7774421, -84.3972695]).addTo(map);
+				marker3.bindPopup("<a href='http://www.ic.gatech.edu/future/phdhcc' target='_blank'>Georgia Tech</a><br> College of Computing");
+				
+				// Clemson college
+				var marker4 = L.marker([34.6774642, -82.8361914]).addTo(map);
+				marker4.bindPopup("<a href='http://www.clemson.edu/ces/computing/divisions/hcc.html' target='_blank'>Clemson</a><br> HCC Division");
+				
+				// UMBC (Maryland Baltimore)
+				var marker5 = L.marker([39.2351157, -76.71457]).addTo(map);
+				marker5.bindPopup("<a href='http://www.umbc.edu/graduateschool/programs/hum_cent_comp.php' target='_blank'>UMBC</a><br> University of Maryland, Baltimore County");
+				
+				// Colorado
+				var marker6 = L.marker([40.007581, -105.2659417]).addTo(map);
+				marker6.bindPopup("<a href='http://hcc.colorado.edu/' target='_blank'>Colorado</a><br>Human Centered Computing courses & research");
+				
+				// NASA
+				var marker7 = L.marker([38.8829149, -77.0163616]).addTo(map);
+				marker7.bindPopup("<a href='http://www.nasa.gov/centers/ames/research/technology-onepagers/hc-computing.html' target='_blank'>NASA</a><br>HCC Researchs");
+				
+				// University of Pittsburgh
+				var marker8 = L.marker([40.4443533, -79.960835]).addTo(map);
+				marker8.bindPopup("<a href='http://www.ischool.pitt.edu/ist/degrees/specializations/hcc.php' target='_blank'>University of Pittsburgh</a><br>Human-Centered Computing Specialization ");
+				
+				// Florida University
+				var marker9 = L.marker([29.6436325, -82.3549302]).addTo(map);
+				marker9.bindPopup("<a href='https://www.cise.ufl.edu/ciseresearch/human-centered-computing' target='_blank'>University of Florida</a><br>The Human-Centered Computing research area");
+				
+				// Drexel
+				var marker10 = L.marker([39.9566127, -75.1899441]).addTo(map);
+				marker10.bindPopup("<a href='http://drexel.edu/cci/contact/Faculty/human-centered-computing/' target='_blank'>Drexel University</a><br>Human-Centered Computing Faculty");
+				
+				// Lassonde
+				var marker11 = L.marker([43.7734535, -79.5018684]).addTo(map);
+				marker11.bindPopup("<a href='http://eecs.lassonde.yorku.ca/specialization/human-centered-computing/' target='_blank'>University of York</a><br> Human Centered Computing specialization");
+				
+				// OPEN
+				var marker12 = L.marker([52.0225391, -0.7057472]).addTo(map);
+				marker12.bindPopup("<a href='http://www.open.ac.uk/postgraduate/research-degrees/topic/human-centred-computing' target='_blank'>Open</a><br>HCC with the Open University");
+				
+				// London
+				var marker13 = L.marker([51.5277383, -0.1023356]).addTo(map);
+				marker13.bindPopup("<a href='https://www.city.ac.uk/courses/postgraduate/human-centred-systems' target='_blank'>City University London</a><br> Master of Science in Human Centered Systems");
+				
+				// Washington
+				var marker14 = L.marker([47.6553351, -122.3035199]).addTo(map);
+				marker14.bindPopup("<a href='http://www.hcde.washington.edu/ms' target='_blank'>University of Washington</a><br>Master of Science in Human-Centered Engineering and Design");
+				
+				// HUSAT Research institute
+				var marker15 = L.marker([52.7648922,-1.2294671 ]).addTo(map);
+				marker15.bindPopup("<a href='http://www.lboro.ac.uk/departments/lds/research/groups/user-centred-design/' target='_blank'>Loughborough University</a><br>HUSAT Research Institute");
+				
+				// University of Copenhagen
+				var marker16 = L.marker([55.6802303, 12.5724096]).addTo(map);
+				marker16.bindPopup("<a href='http://www.diku.dk/english/research/hcc/' target='_blank'>University of Copenhagen</a><br>The Human-Centered Computing Section (HCC)");
+				
+				// Hamburg
+				var marker17 = L.marker([53.582957, 9.9582647]).addTo(map);
+				marker17.bindPopup("<a href='https://www.inf.uni-hamburg.de/en/research/hcc.html' target='_blank'>University of Hamburg</a><br> Research Cluster, Human-Centered Computing");
+				
+				// Rochester
+				var marker18 = L.marker([43.0832027, -77.6756115]).addTo(map);
+				marker18.bindPopup("<a href='https://www.rit.edu/research/feature/november-2011/human-centered-computing' target='_blank'>Rochester Institute of Technology</a><br>Creating Human-Centered Image Retrieval");
+				
+				// Dundee
+				var marker19 = L.marker([56.4582447, -2.9821428]).addTo(map);
+				marker19.bindPopup("<a href='http://www.computing.dundee.ac.uk/themes/human-centred-computing' target='_blank'>University of Dundee</a><br>Group for the HCC");
+				
+				// Hong Kong
+				var marker20 = L.marker([22.2829989, 114.1370848]).addTo(map);
+				marker20.bindPopup("<a href='http://www4.comp.polyu.edu.hk/~csyuzhao/' target='_blank'>University of Hong Kong</a><br>Cognitive Computing Lab");
+				
+				// DEVELOPMENT PURPOSES
+				/*Add a circle 
+				var circle = L.circle([40.44202, -3.83407], 500, {
+					color: 'purple',
+					fillColor: '#8a22d2',
+					fillOpacity: 0.5
+				}).addTo(map);
+				circle.bindPopup("Hola :).");
+				
+				// Get coordenates
+				function onMapClick(e) {
+					alert("You clicked the map at " + e.latlng);
+				}
+				map.on('click', onMapClick);*/
+				
+				// Botón para volver
+				// Ir a la página inical 
+				$('#volver').click(function(){
+					window.location.href = "/HCXET-EN/index.php";
+				});
+			});
+		</script>
+	</head>
+ 
+	<body>
+		<div id="volver">
+			<p>Back</p>
+		</div>
+		<div id="map">
+		</div>
+	</body>
+</html>
